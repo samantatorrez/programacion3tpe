@@ -1,8 +1,11 @@
+package programacion3tpe;
+
 import java.text.Collator;
 import java.util.List;
 
 public class BinaryTree {
     private Node root;
+    private int count;
 
     //Constructor to initialize the tree with a value
     public BinaryTree(String value) { this.root = new Node(value); }
@@ -40,12 +43,15 @@ public class BinaryTree {
         return node;
     }
 
-    public Node hasElem(String value) { return searchElem(root, value); }
+    public Node hasElem(String value) {
+    	this.setCount(0);
+    	return searchElem(root, value); }
 
     private Node searchElem(Node node, String val) {
         if (node == null) {
             return null;
         } else {
+        	setCount(getCount() + 1);
             Collator collator = Collator.getInstance();
             if (collator.compare(val, node.getGenre()) < 0) {
                 return searchElem(node.getLeftNode(), val);
@@ -101,4 +107,12 @@ public class BinaryTree {
             }
         }
     }
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
 }

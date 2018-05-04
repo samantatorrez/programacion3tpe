@@ -1,3 +1,5 @@
+package programacion3tpe;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -44,6 +46,7 @@ public class CSVConverterService {
             String contentLine="Titulo,Autor,Paginas,Generos";
             bw.write(contentLine);
             bw.newLine();
+            System.out.println("Result Size: "+ books.size());
             for(Book book : books) {
                 contentLine = book.toString();
                 bw.write(contentLine);

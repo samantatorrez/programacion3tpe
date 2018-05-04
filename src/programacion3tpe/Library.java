@@ -1,3 +1,5 @@
+package programacion3tpe;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,9 +18,8 @@ public class Library {
      */
     public void getResultsForGenre(String genre, String fileNameOut) {
         Node result = indexesGenre.hasElem(genre);
-        CSVConverterService service = new CSVConverterService();
         if (result != null) { //we create the file only if we have books as result
-            service.writeCSV(result.getBooks(), fileNameOut);
+        	CSVConverterService.writeCSV(result.getBooks(), fileNameOut);
         }
     }
 
@@ -29,10 +30,16 @@ public class Library {
         add the books to the Library. Also, generates/updates the indexes as it adds the books.
     */
     public void setBooks(String fileName) {
+    	this.clear();
         this.books = CSVConverterService.readCSV(fileName);
         for (Book book : books) {
             indexesGenre.addGenres(book.getGeneros(), book);
         }
+    }
+    
+    private void clear(){
+    	this.books = new ArrayList<Book>();
+        this.indexesGenre = new BinaryTree();
     }
 
     public void printBooks(List<Book> books) {
@@ -42,4 +49,6 @@ public class Library {
     }
 
     public void printIndexes() { indexesGenre.printInOrder(indexesGenre.getRoot()); }
+    
+    public int getIterations() { return indexesGenre.getCount(); }
 }
