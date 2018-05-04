@@ -38,6 +38,10 @@ public class Libro {
 	public void setGeneros(List<String> generos) {
 		this.generos = generos;
 	}
+	public String toString() {
+		String listGeneros = String.join(" ", this.generos);
+		return this.titulo+","+this.autor+","+this.paginas+","+listGeneros;
+	}
 	
 	
 }
