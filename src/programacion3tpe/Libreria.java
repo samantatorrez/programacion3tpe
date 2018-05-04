@@ -16,7 +16,7 @@ public class Libreria {
 		//se agrega ese libro al listado de libros
 		//se crea un index por cada uno de los generos del libro
 	}
-	public void generarResultadoPorGenero(String genero, String fileNameOut) {
+	public void generarResultadoPorGenero(String genero) {
 		//se recorre indexes y al encontrarse el genero lo devuelve
 	}
 
