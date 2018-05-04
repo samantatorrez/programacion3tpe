@@ -17,7 +17,9 @@ public class Library {
     public void getResultsForGenre(String genre, String fileNameOut) {
         Node result = indexesGenre.hasElem(genre);
         CSVConverterService service = new CSVConverterService();
-        service.writeCSV(result.getBooks(), fileNameOut);
+        if (result != null) { //we create the file only if we have books as result
+            service.writeCSV(result.getBooks(), fileNameOut);
+        }
     }
 
     public List<Book> getBooks() { return books; }
