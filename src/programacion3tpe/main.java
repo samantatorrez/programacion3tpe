@@ -3,7 +3,7 @@ package programacion3tpe;
 public class main {
 
     public static void main(String[] args) {
-        Library libreria = new Library();
+        /**Library libreria = new Library();
         long time_start, time_end = 0;
         String[] genres = {"humor","thriller","investigación","ensayo","cine","infantil","ciencia","fantasía","biografía","poesía"};
         
@@ -53,7 +53,9 @@ public class main {
             System.out.println("Search time by gender and saving data in new CSV: "+ ( time_end - time_start ) +" milliseconds");
             System.out.println("iterations: "+libreria.getIterations());
             System.out.println("----------");
-        }
-        
+        }*/
+    
+      SimpleList s =CSVConverterService.getSearchList("dataset1");  
+      s.print();
     }
 }

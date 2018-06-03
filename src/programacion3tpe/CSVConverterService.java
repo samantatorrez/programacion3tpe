@@ -14,9 +14,9 @@ public class CSVConverterService {
     public static final String SEPARATOR=",";
     public static final String SEPARATOR_GENEROS=" ";
 
-    public static List<Book> readCSV(String datasetName) {
+    public static List<Book> getBooksFromFile(String datasetName) {
         List<Book> books= new ArrayList<>();
-        String csvFile = "datasets/" + datasetName + ".csv";
+        String csvFile = "datasets/books/" + datasetName + ".csv";
         String line = "";
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             br.readLine();
@@ -33,10 +33,10 @@ public class CSVConverterService {
         return books;
     }
 
-    public static void writeCSV(List<Book> books, String result) {
+    public static void writeBooksResult(List<Book> books, String result) {
         BufferedWriter bw = null;
         try {
-            File file = new File("datasets/"+ result +".csv");
+            File file = new File("datasets/results/"+ result +".csv");
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -63,4 +63,24 @@ public class CSVConverterService {
             }
         }
     }
+
+    public static SimpleList getSearchList(String datasetName) {
+    	SimpleList searches= new SimpleList();
+        String csvFile = "datasets/searches/" + datasetName + ".csv";
+        String line = "";
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            br.readLine();
+            while ((line = br.readLine()) != null) {
+            	List<String> list = new ArrayList<String>();
+                String [] fields = line.split(SEPARATOR);
+                searches.addArray(fields);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("catch");
+        }
+        return searches;
+    }
+
+    
 } 

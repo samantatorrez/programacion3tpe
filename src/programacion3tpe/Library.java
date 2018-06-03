@@ -19,7 +19,7 @@ public class Library {
     public void getResultsForGenre(String genre, String fileNameOut) {
         Node result = indexesGenre.hasElem(genre);
         if (result != null) { //we create the file only if we have books as result
-        	CSVConverterService.writeCSV(result.getBooks(), fileNameOut);
+        	CSVConverterService.writeBooksResult(result.getBooks(), fileNameOut);
         }
     }
 
@@ -31,7 +31,7 @@ public class Library {
     */
     public void setBooks(String fileName) {
     	this.clear();
-        this.books = CSVConverterService.readCSV(fileName);
+        this.books = CSVConverterService.getBooksFromFile(fileName);
         for (Book book : books) {
             indexesGenre.addGenres(book.getGeneros(), book);
         }
