@@ -64,8 +64,9 @@ public class CSVConverterService {
         }
     }
 
-    public static SimpleList getSearchList(String datasetName) {
-    	SimpleList searches= new SimpleList();
+    public static List<List<String>> getSearchList(String datasetName) {
+    	List<List<String>> searches= new ArrayList<List<String>>();
+    	List<String> search ;
         String csvFile = "datasets/searches/" + datasetName + ".csv";
         String line = "";
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
@@ -73,7 +74,8 @@ public class CSVConverterService {
             while ((line = br.readLine()) != null) {
             	List<String> list = new ArrayList<String>();
                 String [] fields = line.split(SEPARATOR);
-                searches.addArray(fields);
+                search=Arrays.asList(fields);
+                searches.add(search);
             }
         } catch (IOException e) {
             e.printStackTrace();

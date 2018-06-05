@@ -1,5 +1,8 @@
 package programacion3tpe;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class main {
 
     public static void main(String[] args) {
@@ -55,7 +58,9 @@ public class main {
             System.out.println("----------");
         }*/
     
-      SimpleList s =CSVConverterService.getSearchList("dataset1");  
-      s.print();
+    	List<List<String>> s =CSVConverterService.getSearchList("dataset1");  
+      	for(List<String> ele:s) {
+      		System.out.println(Arrays.toString(ele.toArray()));
+      	}
     }
 }
