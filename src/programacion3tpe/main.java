@@ -8,7 +8,7 @@ public class main {
     public static void main(String[] args) {
         /**Library libreria = new Library();
         long time_start, time_end = 0;
-        String[] genres = {"humor","thriller","investigación","ensayo","cine","infantil","ciencia","fantasía","biografía","poesía"};
+        String[] genres = {"humor","thriller","investigaciï¿½n","ensayo","cine","infantil","ciencia","fantasï¿½a","biografï¿½a","poesï¿½a"};
         
         for(String genre: genres) {
         	System.out.println(">Genre: "+genre);
@@ -56,11 +56,13 @@ public class main {
             System.out.println("Search time by gender and saving data in new CSV: "+ ( time_end - time_start ) +" milliseconds");
             System.out.println("iterations: "+libreria.getIterations());
             System.out.println("----------");
-        }*/
+        }
     
     	List<List<String>> s =CSVConverterService.getSearchList("dataset1");  
       	for(List<String> ele:s) {
       		System.out.println(Arrays.toString(ele.toArray()));
-      	}
+      	}*/
+
+		SearchesService s1 = new SearchesService();
     }
 }
