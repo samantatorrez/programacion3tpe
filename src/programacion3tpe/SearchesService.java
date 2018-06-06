@@ -24,12 +24,12 @@ public class SearchesService {
 		return null;
 	}
 
-	public static List<String> getMostSearchedGenres(int n){
-		return null;
+	public List<String> getGenresSearchedAfter(String genre){
+		//Obtener todos los géneros que fueron buscados luego de buscar por el género A.
+		return graph.getVerticesFromGenre(genre);
 	}
-	public static List<String> getGenresSearchedAfter(String genre){
-		return null;
-	}
+
+
 	public static List<String> getRelatedGenres(String genre){
 		return null;
 	}

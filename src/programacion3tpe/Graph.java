@@ -61,6 +61,22 @@ public class Graph {
         return sortedList;
     }
 
+    public List<String> getVerticesFromGenre(String A) {
+        List<String> results = new ArrayList<>();
+        recursionRecorrido(A, results);
+        return results;
+    }
+
+    public void recursionRecorrido(String genre, List<String> results) {
+        while (!results.contains(genre)) {
+            results.add(genre);
+            Map<String, Integer> ady =  vertices.get(genre);
+            for (Map.Entry<String, Integer> entry : ady.entrySet()) {
+                recursionRecorrido(entry.getKey(), results);
+            }
+        }
+    }
+
     public void showGraph() {
         for (Map.Entry<String, Map<String, Integer>> entry : vertices.entrySet()) {
             System.out.println(entry.getKey() + "->" + entry.getValue());

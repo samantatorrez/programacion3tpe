@@ -64,5 +64,11 @@ public class main {
       	}*/
 
 		SearchesService s1 = new SearchesService();
+		List<String> lists1 = s1.getMostSearchedGenres(3,"econom�a");
+        /*System.out.println("N mas buscados por genero ingresado: ");
+        for (int i=0; i<lists1.size();i++ ){
+            System.out.println(lists1.get(i));
+        }*/
+		s1.getGenresSearchedAfter("econom�a");
     }
 }
