@@ -64,5 +64,10 @@ public class main {
       	}*/
 
 		SearchesService s1 = new SearchesService();
+		List<String> jo=s1.getRelatedGenres("ficción");
+		for(String j:jo) {
+			System.out.println(j);
+		}
+		
     }
 }

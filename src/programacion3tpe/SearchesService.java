@@ -12,8 +12,8 @@ public class SearchesService {
 	public static List<String> getGenresSearchedAfter(String genre){
 		return null;
 	}
-	public static List<String> getRelatedGenres(String genre){
-		return null;
+	public List<String> getRelatedGenres(String genre){
+		return this.graph.getCycle(genre);
 	}
 
 	public SearchesService(){
