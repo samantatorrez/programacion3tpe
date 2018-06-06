@@ -13,7 +13,7 @@ public class main {
 		// ------------Service 1---------------- //
 
 		long time_start_2, time_end_2 = 0;
-		String [] mostSearchedGenresTest = {"thriller","cultura","religi�n","cine"};
+		String [] mostSearchedGenresTest = {"thriller","cultura","religión","cine"};
 		List<String> listMostSearchedGenresTest;
 		System.out.println();
 		System.out.println("Most Searched Genres Test");
@@ -41,7 +41,7 @@ public class main {
 		// ------------Service 2---------------- //
 
 		long time_start_3, time_end_3 = 0;
-		String [] genresSearchedAfterTest = {"thriller","cultura","religi�n","cine"};
+		String [] genresSearchedAfterTest = {"thriller","cultura","religión","cine"};
 		List<String> listGenresSearchedAfterTest;
 		System.out.println();
 		System.out.println("All Searched Genres After Origin Test");
@@ -69,7 +69,7 @@ public class main {
 		// ------------Service 3---------------- //
 
 		long time_start, time_end = 0;
-		String [] relatedGenresTest = {"ficci�n","viajes","tecnolog�a","ludo"};
+		String [] relatedGenresTest = {"ficción","viajes","tecnología","ludo"};
 		List<String> listRelatedGenresTest;
 		System.out.println();
 		System.out.println("Related Genres Test");
