@@ -1,7 +1,6 @@
 package programacion3tpe;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Graph {
     private Map<String, Map<String, Integer>> vertices = new HashMap<>();
@@ -33,6 +32,33 @@ public class Graph {
         if (!vertices.containsKey(genre)) {
             vertices.put(genre, new HashMap<>());
         }
+    }
+
+    public boolean containsGenre(String genre){
+        return vertices.containsKey(genre);
+    }
+
+    public List<String> getAdyacentesOrdenados(String genre) {
+        List<String> adyacentes = sortByComparator(vertices.get(genre));
+        return adyacentes;
+    }
+
+    private List<String> sortByComparator(Map<String, Integer> unsortMap) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(unsortMap.entrySet());
+
+        //Ordena segun la cantidad de busquedas, de mayor a menor
+        Collections.sort(list, new Comparator<>() {
+            public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
+                return o2.getValue().compareTo(o1.getValue());
+            }
+        });
+
+        //Como se que estan ordenados, los agrego a una lista
+        List<String> sortedList = new ArrayList<>();
+        for (Map.Entry<String, Integer> entry : list) {
+            sortedList.add(entry.getKey());
+        }
+        return sortedList;
     }
 
     public void showGraph() {
