@@ -84,4 +84,32 @@ public class Graph {
 
         }
     }
+
+	public List<String> getCycle(String v) {
+		List<String> visited = new ArrayList<>();
+		hasCycle(v, visited);
+		return visited;
+	}
+
+	public boolean hasCycle(String node) {
+		List<String> visited = new ArrayList<>();
+		return hasCycle(node, visited);
+	}
+
+	private boolean hasCycle(String node, List<String> visited) { // DFS
+		if (!visited.isEmpty()&&visited.get(0).equals(node)) {
+			return true;
+		}
+		Map<String, Integer> childs = vertices.get(node);
+		if(childs!=null) {
+			visited.add(node);//agrego a la pila
+			for (Map.Entry<String, Integer> entry : childs.entrySet()) {
+				if (hasCycle(entry.getKey(), visited)) {//recursion por cada hijo no visitado
+					return true;
+				}
+			}
+			visited.remove(visited.size() - 1);//quito de la pila
+		}
+		return false;
+	}
 }

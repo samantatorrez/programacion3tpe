@@ -29,9 +29,8 @@ public class SearchesService {
 		return graph.getVerticesFromGenre(genre);
 	}
 
-
-	public static List<String> getRelatedGenres(String genre){
-		return null;
+	public List<String> getRelatedGenres(String genre){
+		return this.graph.getCycle(genre);
 	}
 
 	public SearchesService(){

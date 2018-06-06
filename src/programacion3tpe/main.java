@@ -8,7 +8,7 @@ public class main {
     public static void main(String[] args) {
         /**Library libreria = new Library();
         long time_start, time_end = 0;
-        String[] genres = {"humor","thriller","investigaci�n","ensayo","cine","infantil","ciencia","fantas�a","biograf�a","poes�a"};
+        String[] genres = {"humor","thriller","investigaciï¿½n","ensayo","cine","infantil","ciencia","fantasï¿½a","biografï¿½a","poesï¿½a"};
         
         for(String genre: genres) {
         	System.out.println(">Genre: "+genre);
@@ -64,11 +64,16 @@ public class main {
       	}*/
 
 		SearchesService s1 = new SearchesService();
-		List<String> lists1 = s1.getMostSearchedGenres(3,"econom�a");
+
+		List<String> lists1 = s1.getMostSearchedGenres(3,"economï¿½a");
         /*System.out.println("N mas buscados por genero ingresado: ");
         for (int i=0; i<lists1.size();i++ ){
             System.out.println(lists1.get(i));
         }*/
-		s1.getGenresSearchedAfter("econom�a");
-    }
+		s1.getGenresSearchedAfter("economï¿½a");
+
+		List<String> jo=s1.getRelatedGenres("ficción");
+		for(String j:jo) {
+			System.out.println(j);
+		}
 }
