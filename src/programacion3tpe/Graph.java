@@ -67,7 +67,9 @@ public class Graph {
 
 	public List<String> getVerticesFromGenre(String A) {
 		List<String> results = new ArrayList<>();
-		recursionRecorrido(A, results);
+        if (vertices.containsKey(A)){
+            recursionRecorrido(A, results);
+        }
 		return results;
 	}
 
