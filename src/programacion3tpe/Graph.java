@@ -97,25 +97,26 @@ public class Graph {
 		return visited;
 	}
 
-	public boolean hasCycle(String node) {
-		List<String> visited = new ArrayList<>();
-		return hasCycle(node, visited);
-	}
-
-	private boolean hasCycle(String node, List<String> visited) { // DFS
-		if (!visited.isEmpty() && visited.get(0).equals(node)) {
-			return true;
-		}
-		Map<String, Integer> childs = vertices.get(node);
-		if (childs != null) {
-			visited.add(node);// agrego a la pila
-			for (Map.Entry<String, Integer> entry : childs.entrySet()) {
-				if (MAX_SIZE_CYCLE_RESULT>visited.size()&&hasCycle(entry.getKey(), visited)) {// recursion por cada hijo no visitado
-					return true;
-				}
+	private boolean hasCycle(String v, List<String> visited) {
+		visited.add(v);
+		Map<String, Integer> childs = vertices.get(v);
+		boolean hayciclo=false;
+		if(childs!=null) {
+			Iterator<Map.Entry<String, Integer>> it = childs.entrySet().iterator();
+			while (it.hasNext()&&!hayciclo) {
+			    Map.Entry<String, Integer> pair = it.next();
+			    if(!visited.contains(pair.getKey())) {
+			    	hayciclo = hasCycle(pair.getKey(), visited);
+			    } else {
+			    	if(visited.get(0).equals(pair.getKey())) {
+			    		return true;
+			    	}
+			    }
 			}
-			visited.remove(visited.size() - 1);// quito de la pila
 		}
-		return false;
-	}
+		if(!hayciclo) {
+			visited.remove(visited.size() - 1);
+		}
+		return hayciclo;	
+	}		
 }
